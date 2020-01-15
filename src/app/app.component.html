@@ -1,15 +1,24 @@
 
 
 <h1>{{ title }}</h1>
-<h2>{{ pizza.name }}</h2>
-<div>ID:{{ pizza.id }}</div>
-<div>Prix : {{ pizza.price }}</div>
+<div *ngIf="selectedPizza">
+  <h2>{{ selectedPizza?.name }}</h2>
+  <div>ID:{{ selectedPizza.id }}</div>
+  <div>Prix : {{ selectedPizza.price }}</div>
 
-<!-- ngModel est une directive d'Angular -->
-<input [(ngModel)]="pizza.name"/>
+  <!-- ngModel est une directive d'Angular -->
+  <input [(ngModel)]="selectedPizza.name"/>
+</div>
 <!-- est égal à : -->
 <!-- <input [value]="pizza.name" (keyup)="pizza.name = $event.target.value"> -->
-<input [(ngModel)] ="pizza.price"/>
+
+<h2>Les pizzas</h2>
+
+<ul>
+  <li *ngFor="let pizza of pizzas" (click)="onSelect(pizza)">
+    {{ pizza.name }}
+  </li>
+</ul>
 
 
 
