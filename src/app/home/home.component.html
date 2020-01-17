@@ -13,6 +13,7 @@
         <h5 class="card-title">{{ pizza.name }}</h5>
         <p id="prixHT">Prix HT : {{ pizza.price }} €</p>
         <p id="prixTTC">Prix TTC {{ pizza.price | tax}} €</p>
+        <a routerLink="/pizzas/{{ pizza.id }}" class="btn btn-primary">Voir la pizza</a>
         <span *ngFor="let selectedIngredient of selectedIngredients; index as i" class="badge badge-primary">
            {{ selectedIngredient.name}}
            <span (click)="deleteIngredient(i, $event)">X</span>
