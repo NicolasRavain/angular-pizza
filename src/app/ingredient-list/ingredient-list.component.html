@@ -1,7 +1,8 @@
+<h2> Ajoutez des ingrédients</h2>
 <ul>
-	<li *ngFor="let ingredient of ingredients">
+	<li *ngFor="let ingredient of ingredients" (click)="chooseIngredient(ingredient)">
 		<span>{{ ingredient.name }}</span> <br/>
-		<img [src]="'/assets/ingredients/' + ingredient.image" width="100" /> <br/>
+		<img [src]="'/assets/ingredients/' + ingredient.image" width="150" /> <br/>
 		<span>{{ ingredient.price }} €</span> <br/>
 	</li>
 </ul>
